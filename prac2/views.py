@@ -2,7 +2,10 @@ from django.http import HttpResponse, Http404
 from django.template import Context
 from django.template.loader import get_template
 from django.contrib.auth.models import User
+from django.views.generic import DetailView
+from django.views.generic.edit import CreateView, UpdateView
 from models import *
+from forms import *
 
 def mainpage(request):	
 	template = get_template('mainpage.html')
@@ -197,4 +200,19 @@ def matchModel(request, idaux):
 
 	return general(request, template, variables)	
 	
-			
+class StadiumEdit(UpdateView):
+	model = Stadium
+	template_name = 'forms.html'
+
+	def get_context_data(self, **kwargs):
+		context = super(RestaurantDetail, self).get_context_data(**kwargs)
+		return context
+
+class StadiumCreate(CreateView):
+	model = Stadium
+	template_name = 'forms.html'
+	form_class = StadiumForm
+
+	def form_valid(self, form):
+		form.instance.user = self.request.user
+		return super(StadiumCreate, self).form_valid(form)			

@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
-from prac1.views import *
+from prac2.views import *
+from prac2.models import *
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -24,7 +25,11 @@ urlpatterns = patterns('',
 	url(r'^representative/(?P<idaux>\d+)/$', representativeModel),
 	url(r'^player/(?P<idaux>\d+)/$', playerModel),
 	url(r'^league/(?P<idaux>\d+)/$', leagueModel),	
-        url(r'^coach/(?P<idaux>\d+)/$', coachModel),
+    url(r'^coach/(?P<idaux>\d+)/$', coachModel),
+
+	url(r'mystadiums/stadium_create/$' ,StadiumCreate.as_view(), name = 'StadiumCreate'),
+	url(r'mystadiums/stadium_edit/(?P<pk>[\W\S]+)/$' ,StadiumEdit.as_view()),
+#	url(r'mystadiums/stadium_edit/$' ,UpdateView.as_view(), name='stadium_create'),
 
 	#url(r'^user/(\w+)/$', userpage),
 	url(r'^login/$', 'django.contrib.auth.views.login'),

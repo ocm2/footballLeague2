@@ -1,5 +1,5 @@
 from django.contrib import admin
-from prac1.models import *
+from prac2.models import *
 
 admin.site.register(League)
 admin.site.register(Team)

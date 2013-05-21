@@ -15,8 +15,8 @@ DATABASES = {
 'default': {
 'ENGINE': 'django.db.backends.sqlite3',
 'NAME': 'basedades.db',
-'USER': '',
-'PASSWORD': '',
+'USER': 'dbuser',
+'PASSWORD': 'dbpassword',
 }
 }
 
@@ -68,7 +68,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.join(os.path.dirname(__file__),'../prac1/'),
+    os.path.join(os.path.dirname(__file__),'../prac2/'),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -102,17 +102,17 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'prova.urls'
+ROOT_URLCONF = 'footballLeague.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'prova.wsgi.application'
+WSGI_APPLICATION = 'footballLeague.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 	os.path.join(os.path.dirname(__file__),
-	'../prac1/templates'),
+	'../prac2/templates'),
 )
 
 INSTALLED_APPS = (
@@ -122,7 +122,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'prac1',
+	'prac2',
     # Uncomment the next line to enable the admin:
      'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
