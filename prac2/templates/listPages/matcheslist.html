@@ -1,0 +1,16 @@
+{% extends "mainpage.html"  %}
+{% block content %}
+<html>
+	<body>
+		<h1>{{ title }}</h1>
+		<ul> 
+		{% for i in items %}
+		<li>
+			{{i.day}} - {{i.numOfMatch}}
+			<input type="button" value="+Details" onClick= location.href="/match/{{i.id}}/" />
+		</li>
+		{% endfor %}
+		</ul>
+	</body>
+<html>
+{% endblock %}
