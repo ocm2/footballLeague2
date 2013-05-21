@@ -14,7 +14,7 @@ class Representative(models.Model):
 	def __unicode__(self):
 		return self.name
 	def get_absolute_url(self):
-		return reverse('RepresentativeCreate')
+		return reverse('List of Representative')
 	
 class Player(models.Model):
 	name = models.CharField(max_length=50)
@@ -28,7 +28,7 @@ class Player(models.Model):
 	def __unicode__(self):
 		return self.name+ " - "+self.position
 	def get_absolute_url(self):
-		return reverse('PlayerCreate')
+		return reverse('List of Players')
 
 class Stadium(models.Model):
 	name = models.CharField(max_length=50)
@@ -52,7 +52,7 @@ class Coach(models.Model):
 	def __unicode__(self):
 		return self.name
 	def get_absolute_url(self):
-		return reverse('CoachCreate')
+		return reverse('List of Coachs')
 
 class Team(models.Model):
 	name = models.CharField(max_length=50)
@@ -66,7 +66,7 @@ class Team(models.Model):
 	def __unicode__(self):
 		return self.name
 	def get_absolute_url(self):
-		return reverse('TeamCreate')
+		return reverse('List of Teams')
 
 
 class League(models.Model):
@@ -78,7 +78,7 @@ class League(models.Model):
 	def __unicode__(self):
 		return self.name
 	def get_absolute_url(self):
-		return reverse('LeagueCreate')
+		return reverse('List of Leagues')
 
 class Referee(models.Model):
 	name = models.CharField(max_length=50)
@@ -89,7 +89,7 @@ class Referee(models.Model):
 	def __unicode__(self):
 		return self.name
 	def get_absolute_url(self):
-		return reverse('RefereeCreate')
+		return reverse('List of Referees')
 
 class Match(models.Model):
 	day = models.CharField(max_length=10) #Jornada
@@ -104,5 +104,5 @@ class Match(models.Model):
 	def __unicode__(self):
 		return self.day+" - "+ self.numOfMatch
 	def get_absolute_url(self):
-		return reverse('MatchCreate')
+		return reverse('List of Matches')
 

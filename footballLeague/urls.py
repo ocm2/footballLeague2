@@ -28,19 +28,23 @@ urlpatterns = patterns('',
 	url(r'^match/(?P<idaux>\d+)/$', matchModel),
 
 
-#	url(r'representative_create/$' ,RepresentativeCreate.as_view(), name = 'RepresentativeCreate'),
-#	url(r'player_create/$'   ,PlayersCreate.as_view(), name = 'PlayersCreate'),
-	url(r'stadium/stadium_create/$' ,StadiumCreate.as_view(), name = 'StadiumCreate'),
-#	url(r'coach_create/$' ,CoachCreate.as_view(), name = 'CoachCreate'),
-#	url(r'team_create/$' ,TeamCreate.as_view(), name = 'TeamCreate'),
-#	url(r'league_create/$' ,LeagueCreate.as_view(), name = 'LeagueCreate'),
-#	url(r'referee_create/$' ,RefereeCreate.as_view(), name = 'RefereeCreate'),
-#	url(r'match_create/$' ,MatchCreate.as_view(), name = 'MatchCreate'),
+#	url(r'representative/representative_create/$' ,RepresentativeCreate.as_view(), name = 'RepresentativeCreate'),
+#	url(r'player/player_create/$'   ,PlayersCreate.as_view(), name = 'PlayersCreate'),
+	url(r'stadium/stadium_create/$' ,Create.as_view(model = Stadium, form_class = StadiumForm), name = 'StadiumCreate'),
+#	url(r'coach/coach_create/$' ,CoachCreate.as_view(), name = 'CoachCreate'),
+#	url(r'team/team_create/$' ,TeamCreate.as_view(), name = 'TeamCreate'),
+#	url(r'league/league_create/$' ,LeagueCreate.as_view(), name = 'LeagueCreate'),
+#	url(r'referee/referee_create/$' ,RefereeCreate.as_view(), name = 'RefereeCreate'),
+#	url(r'match/match_create/$' ,MatchCreate.as_view(), name = 'MatchCreate'),
 
 
-	url(r'stadium/(?P<pk>\d+)/stadium_edit$' ,StadiumEdit.as_view(), name = 'StadiumEdit'),
+	url(r'stadium/(?P<pk>\d+)/stadium_edit$' ,Edit.as_view(model = Stadium, form_class = StadiumForm)),
 
-#	url(r'mystadiums/stadium_edit/$' ,UpdateView.as_view(), name='stadium_create'),
+	url(r'stadium/(?P<pk>\d+)/delete$' ,Delete.as_view(success_url = '/stadiumsList/',model = Stadium),  name = 'Delete'),
+
+
+
+
 
 	#url(r'^user/(\w+)/$', userpage),
 	url(r'^login/$', 'django.contrib.auth.views.login'),

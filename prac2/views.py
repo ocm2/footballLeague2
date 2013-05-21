@@ -3,7 +3,7 @@ from django.template import Context
 from django.template.loader import get_template
 from django.contrib.auth.models import User
 from django.views.generic import DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from models import *
 from forms import *
 
@@ -201,20 +201,25 @@ def matchModel(request, idaux):
 
 	return general(request, template, variables)	
 	
-class StadiumEdit(UpdateView):
-	model = Stadium
+class Edit(UpdateView):
 	template_name = 'forms.html'
 
 	def get_context_data(self, **kwargs):
-		context = super(StadiumEdit, self).get_context_data(**kwargs)
+		context = super(Edit, self).get_context_data(**kwargs)
 		return context
 
-class StadiumCreate(CreateView):
-	model = Stadium
+class Create(CreateView):
 	template_name = 'forms.html'
-	form_class = StadiumForm
 
 	def form_valid(self, form):
 		form.instance.user = self.request.user
-		return super(StadiumCreate, self).form_valid(form)
+		return super(Create, self).form_valid(form)
+
+class Delete(DeleteView):
+	template_name = 'delete.html'
+
+	def form_valid(self, form):
+		form.instance.user = self.request.user
+		return super(Delete, self).form_valid(form)
+
 
