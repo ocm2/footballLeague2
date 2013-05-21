@@ -1,4 +1,4 @@
-
+{% extends "mainpage.html"  %}
 {%block	content%}
 {% if user.username %}
 	<form method="post" action="">
@@ -6,11 +6,11 @@
 	<table>
 	{{form.as_table }}
 	</table>
-	<input	type="submit" value="Submit"/>
+	<input	type="submit" value="Submit" >
 </form>
 {% else %}
-		<p>No estas loguejat:
-		Obligatori fer <a href="/login/">sign in</a>
-		per editar.</p>
+		<p>You have not loged in:
+		Please, <a href="/login/">sign in</a>
+		</p>
 	{% endif %}
 {%endblock%}

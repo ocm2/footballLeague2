@@ -8,6 +8,7 @@
 		<li>
 			{{i.name}}	
 			<input type="button" value="+Details" onClick= location.href="{{route}}{{i.id}}" />
+			<input type="button" value="Edit" onClick= location.href="{{route}}{{i.id}}{{route_edit}}" />
 		</li>
 		{% endfor %}
 		</ul>

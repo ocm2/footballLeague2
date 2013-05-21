@@ -75,7 +75,8 @@ def stadiumsList(request):
 		'title': 'List of Stadiums',
 		'titlehead': 'List of Stadiums',
 		'items': stadiums,	
-		'route': '/stadium/',
+		'route': '/stadium/',	
+		'route_edit': '/stadium_edit',
 	})
 
 	return general(request, 'list', variables)
@@ -205,7 +206,7 @@ class StadiumEdit(UpdateView):
 	template_name = 'forms.html'
 
 	def get_context_data(self, **kwargs):
-		context = super(RestaurantDetail, self).get_context_data(**kwargs)
+		context = super(StadiumEdit, self).get_context_data(**kwargs)
 		return context
 
 class StadiumCreate(CreateView):
@@ -215,4 +216,5 @@ class StadiumCreate(CreateView):
 
 	def form_valid(self, form):
 		form.instance.user = self.request.user
-		return super(StadiumCreate, self).form_valid(form)			
+		return super(StadiumCreate, self).form_valid(form)
+
