@@ -2,7 +2,7 @@
 {% block content %}
 <html>
 	<body>
-		<h1>{{ title }}</h1>
+		<h1>{{ title }} <input type="button" value="Add" onClick= location.href="{{route}}{{route_create}}" /></h1>
 		<ul> 
 		{% for i in items %}
 		<li>

@@ -31,7 +31,9 @@ def representativesList(request):
 		'title': 'List of Representatives',
 		'titlehead': 'List of Representatives',
 		'items': representatives,
-		'route': '/representative/',
+		'route': '/representative/',	
+		'route_create': 'representative_create',	
+		'route_edit': '/representative_edit',
 	})
 
 	return general(request, 'list', variables)
@@ -54,6 +56,8 @@ def playersList(request):
 		'titlehead': 'List of Players',
 		'items': players,	
 		'route': '/player/',
+		'route_create': 'player_create',	
+		'route_edit': '/player_edit',
 	})
 
 	return general(request, 'list', variables)
@@ -77,6 +81,7 @@ def stadiumsList(request):
 		'items': stadiums,	
 		'route': '/stadium/',	
 		'route_edit': '/stadium_edit',
+		'route_create': 'stadium_create',
 	})
 
 	return general(request, 'list', variables)
@@ -99,6 +104,8 @@ def coachsList(request):
 		'titlehead': 'List of Coachs',
 		'items': coachs,	
 		'route': '/coach/',
+		'route_create': 'coach_create',
+		'route_edit': '/coach_edit',
 	})
 
 	return general(request, 'list', variables)
@@ -121,6 +128,8 @@ def teamsList(request):
 		'titlehead': 'List of Teams',
 		'items': teams,	
 		'route': '/team/',
+		'route_create': 'team_create',
+		'route_edit': '/team_edit',
 	})
 
 	return general(request, 'list', variables)	
@@ -143,6 +152,8 @@ def leaguesList(request):
 		'titlehead': 'List of Leagues',
 		'items': leagues,	
 		'route': '/league/',
+		'route_create': 'league_create',
+		'route_edit': '/league_edit',
 	})
 
 	return general(request, 'list', variables)	
@@ -164,6 +175,8 @@ def refereesList(request):
 		'titlehead': 'List of Referees',
 		'items': referees,	
 		'route': '/referee/',
+		'route_create': 'referee_create',
+		'route_edit': '/referee_edit',
 	})
 
 	return general(request, 'list', variables)
@@ -186,6 +199,9 @@ def matchesList(request):
 		'title': 'List of Matches',
 		'titlehead': 'List of Matches',
 		'items': matches,
+		'route': '/match/',
+		'route_create': 'match_create',
+		'route_edit': '/match_edit',
 	})
 
 	return general(request, template, variables)	
@@ -218,8 +234,5 @@ class Create(CreateView):
 class Delete(DeleteView):
 	template_name = 'delete.html'
 
-	def form_valid(self, form):
-		form.instance.user = self.request.user
-		return super(Delete, self).form_valid(form)
 
 
