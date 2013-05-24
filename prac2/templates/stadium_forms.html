@@ -1,6 +1,17 @@
 {% extends "mainpage.html"  %}
+{%load staticfiles%}
 
 {%block  content%}
+	<script>
+		$(function() {
+			$.getJSON("{% static "stadiums.json" %}", {}, function(stadiums) {
+				$("#id_name").autocomplete({
+					source: stadiums
+				});
+			});
+		});
+	</script>
+
 {% if user.username %}
 	<form method="post" action="">
 	{% csrf_token %}

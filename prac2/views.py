@@ -90,6 +90,7 @@ def stadiumModel(request, idaux):
 	stadium = Stadium.objects.get(id = idaux)
 	template = get_template('modelPages/stadium.html')
 	variables = Context({
+		'name': stadium.name,
 		'title': 'Information of Stadium',
 		'titlehead': 'Information of Stadium',
 		'stadium': stadium,
@@ -218,15 +219,11 @@ def matchModel(request, idaux):
 	return general(request, template, variables)	
 	
 class Edit(UpdateView):
-	template_name = 'forms.html'
-
 	def get_context_data(self, **kwargs):
 		context = super(Edit, self).get_context_data(**kwargs)
 		return context
 
 class Create(CreateView):
-	template_name = 'forms.html'
-
 	def form_valid(self, form):
 		form.instance.user = self.request.user
 		return super(Create, self).form_valid(form)
