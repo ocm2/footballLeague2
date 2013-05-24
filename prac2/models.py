@@ -19,7 +19,7 @@ class Representative(models.Model):
 class Player(models.Model):
 	name = models.CharField(max_length=50)
 	bornDate = models.DateField()
-	nacionality = models.CharField(max_length=50)
+	country = models.CharField(max_length=50)
 	position = models.CharField(max_length=20)
 	representative = models.ForeignKey(Representative)
 	date = models.DateField(default=date.today)
